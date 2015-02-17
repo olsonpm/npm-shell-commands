@@ -1,0 +1,79 @@
+#!/bin/bash
+
+function c_npm_install_my
+{
+	if [ -z ${1+x} ]; then
+		echo "c_npm_install_my requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm install --save "git://github.com/olsonpm/${pkgName}.git"
+    fi
+}
+
+function npmis
+{
+	if [ -z ${1+x} ]; then
+		echo "npmis requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm install --save ${pkgName}
+    fi
+}
+
+function npmisd
+{
+	if [ -z ${1+x} ]; then
+		echo "npmisd requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm install --save-dev ${pkgName}
+    fi
+}
+
+function npmrs
+{
+	if [ -z ${1+x} ]; then
+		echo "npmrs requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm remove --save ${pkgName}
+    fi
+}
+
+function npmrsd
+{
+	if [ -z ${1+x} ]; then
+		echo "npmrsd requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm remove --save-dev ${pkgName}
+    fi
+}
+
+function npmig
+{
+	if [ -z ${1+x} ]; then
+		echo "npmig requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm install -g ${pkgName}
+    fi
+}
+
+function npmrg
+{
+	if [ -z ${1+x} ]; then
+		echo "npmrg requires a string argument (package name)"
+	else
+        pkgName="${1}"
+        npm remove -g ${pkgName}
+    fi
+}
+
+export -f c_npm_install_my
+export -f npmis
+export -f npmisd
+export -f npmrs
+export -f npmrsd
+export -f npmig
+export -f npmrg
