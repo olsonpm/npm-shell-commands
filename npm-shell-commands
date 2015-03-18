@@ -9,11 +9,11 @@ function c_npm_install_from_git
 	pkgUser=''
 	pkgName=''	
 	if [ -z ${2+x} ]; then
-		pkgUser="${1}"
-		pkgName="${2}"
-	else 
 		# assume self
 		pkgUser="olsonpm"
+		pkgName="${2}"
+	else 
+		pkgUser="${1}"
 		pkgName="${2}"
 	fi
 	
