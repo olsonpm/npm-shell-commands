@@ -11,7 +11,7 @@ function c_npm_install_from_git
 	if [ -z ${2+x} ]; then
 		# assume self
 		pkgUser="olsonpm"
-		pkgName="${2}"
+		pkgName="${1}"
 	else 
 		pkgUser="${1}"
 		pkgName="${2}"
