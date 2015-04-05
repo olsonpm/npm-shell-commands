@@ -1,23 +1,43 @@
 #!/usr/bin/env bash
 
-function c_npm_install_from_git
+function c_npm_install_local_from_git
 {	
 	if [ -z ${1+x} ]; then
 		echo "c_npm_install_my requires a string argument (package name)"
 	fi
 
-	pkgUser=''
-	pkgName=''	
+	repoUser=''
+	repoName=''
 	if [ -z ${2+x} ]; then
 		# assume self
-		pkgUser="olsonpm"
-		pkgName="${1}"
+		repoUser="olsonpm"
+		repoName="${1}"
 	else 
-		pkgUser="${1}"
-		pkgName="${2}"
+		repoUser="${1}"
+		repoName="${2}"
 	fi
 	
-    npm install --save "git://github.com/${pkgUser}/${pkgName}.git"
+    npm install --save "${repoUser}/${repoName}"
+}
+
+function c_npm_install_global_from_git
+{	
+	if [ -z ${1+x} ]; then
+		echo "c_npm_install_my requires a string argument (package name)"
+	fi
+
+	repoUser=''
+	repoName=''	
+	if [ -z ${2+x} ]; then
+		# assume self
+		repoUser="olsonpm"
+		repoName="${1}"
+	else 
+		repoUser="${1}"
+		repoName="${2}"
+	fi
+	
+    npm install --save -g "${repoUser}/${repoName}"
 }
 
 function npmis
@@ -80,7 +100,8 @@ function npmrg
     fi
 }
 
-export -f c_npm_install_from_git
+export -f c_npm_install_local_from_git
+export -f c_npm_install_global_from_git
 export -f npmis
 export -f npmisd
 export -f npmrs
