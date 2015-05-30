@@ -1,102 +1,56 @@
 #!/usr/bin/env bash
 
-function c_npm_install_local_from_git
-{	
-	if [ -z ${1+x} ]; then
-		echo "c_npm_install_my requires a string argument (package name)"
-	fi
-
-	repoUser=''
-	repoName=''
-	if [ -z ${2+x} ]; then
-		# assume self
-		repoUser="olsonpm"
-		repoName="${1}"
-	else 
-		repoUser="${1}"
-		repoName="${2}"
-	fi
-	
-    npm install --save "${repoUser}/${repoName}"
-}
-
-function c_npm_install_global_from_git
-{	
-	if [ -z ${1+x} ]; then
-		echo "c_npm_install_my requires a string argument (package name)"
-	fi
-
-	repoUser=''
-	repoName=''	
-	if [ -z ${2+x} ]; then
-		# assume self
-		repoUser="olsonpm"
-		repoName="${1}"
-	else 
-		repoUser="${1}"
-		repoName="${2}"
-	fi
-	
-    npm install --save -g "${repoUser}/${repoName}"
-}
-
 function npmis
 {
 	if [ -z ${1+x} ]; then
-		echo "npmis requires a string argument (package name)"
+		echo "npmis requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm install --save ${pkgName}
+        npm install --save "$@"
     fi
 }
 
 function npmisd
 {
 	if [ -z ${1+x} ]; then
-		echo "npmisd requires a string argument (package name)"
+		echo "npmisd requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm install --save-dev ${pkgName}
+        npm install --save-dev "$@"
     fi
 }
 
 function npmrs
 {
 	if [ -z ${1+x} ]; then
-		echo "npmrs requires a string argument (package name)"
+		echo "npmrs requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm remove --save ${pkgName}
+        npm remove --save "$@"
     fi
 }
 
 function npmrsd
 {
 	if [ -z ${1+x} ]; then
-		echo "npmrsd requires a string argument (package name)"
+		echo "npmrsd requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm remove --save-dev ${pkgName}
+        npm remove --save-dev "$@"
     fi
 }
 
 function npmig
 {
 	if [ -z ${1+x} ]; then
-		echo "npmig requires a string argument (package name)"
+		echo "npmig requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm install -g ${pkgName}
+        npm install -g "$@"
     fi
 }
 
 function npmrg
 {
 	if [ -z ${1+x} ]; then
-		echo "npmrg requires a string argument (package name)"
+		echo "npmrg requires at least one string argument (package name)"
 	else
-        pkgName="${1}"
-        npm remove -g ${pkgName}
+        npm remove -g "$@"
     fi
 }
 
