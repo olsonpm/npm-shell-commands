@@ -54,8 +54,6 @@ function npmrg
     fi
 }
 
-export -f c_npm_install_local_from_git
-export -f c_npm_install_global_from_git
 export -f npmis
 export -f npmisd
 export -f npmrs
