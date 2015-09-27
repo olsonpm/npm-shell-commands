@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 function npmis
 {
 	if [ -z ${1+x} ]; then
