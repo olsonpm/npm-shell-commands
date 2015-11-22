@@ -51,10 +51,3 @@ function npmrg
         npm remove -g "$@"
     fi
 }
-
-export -f npmis
-export -f npmisd
-export -f npmrs
-export -f npmrsd
-export -f npmig
-export -f npmrg
