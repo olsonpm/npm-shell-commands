@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+if [ -z ${1+x} ]; then
+  echo "npmrs requires at least one string argument (package name)"
+else
+  npm remove --save "$@"
+fi
