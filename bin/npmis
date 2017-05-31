@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-if [ -z ${1+x} ]; then
-  echo "npmis requires at least one string argument (package name)"
-else
-  npm install --save "$@"
-fi
